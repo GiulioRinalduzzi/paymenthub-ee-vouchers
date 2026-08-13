@@ -86,7 +86,7 @@ spotless {
         target '**/*.md', '**/*.properties', '**/.gitignore', '**/.openapi-generator-ignore', '**/*.yml', '**/*.xml', '**/**.json', '**/*.sql'
         // Scaffold files (README, LICENSE, CODE_OF_CONDUCT, CONTRIBUTING) are owned
         // by the org-wide repo standard, not by this repo's formatter.
-        targetExclude '**/build/**', '**/bin/**', '**/.settings/**', '**/.idea/**', '**/.gradle/**', '**/gradlew.bat', '**/licenses/**', '**/banner.txt', '.vscode/**', 'CODE_OF_CONDUCT.md', 'CONTRIBUTING.md', 'README.md'
+        targetExclude '**/build/**', '**/bin/**', '**/.settings/**', '**/.idea/**', '**/.gradle/**', '**/gradlew.bat', '**/licenses/**', '**/banner.txt', '.vscode/**', 'CODE_OF_CONDUCT.md', 'CONTRIBUTING.md', 'README.md', 'contributing.md', 'security.md', 'LICENSE'
         indentWithSpaces(4)
         endWithNewline()
         trimTrailingWhitespace()

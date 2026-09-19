@@ -66,7 +66,8 @@ public class CheckTransferStatusWorker {
 
                 String response = RestAssured.given(requestSpec).baseUri(operationsApiProperties.hostname()).expect()
                         .spec(new ResponseSpecBuilder().expectStatusCode(200).build()).when()
-                        .get(operationsApiProperties.endpoints().transfers() + "&clientCorrelationId=" + clientCorrelationId).andReturn().asString();
+                        .get(operationsApiProperties.endpoints().transfers() + "&clientCorrelationId=" + clientCorrelationId).andReturn()
+                        .asString();
 
                 JSONObject responseJson = new JSONObject(response);
                 String status = null;

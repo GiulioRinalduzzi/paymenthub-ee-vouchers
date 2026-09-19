@@ -15,19 +15,20 @@ import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.env.SystemEnvironmentPropertySource;
 
 /**
- * Binds every properties record from the exact keys application.yml uses, and from the environment variable spellings a deployment would
- * use for them.
+ * Binds every properties record from the exact keys application.yml uses, and from the environment variable spellings a
+ * deployment would use for them.
  *
  * <p>
- * Moving a property from {@code @Value} to {@code @ConfigurationProperties} changes how its name resolves, and several of these names are
- * awkward: {@code async.core_pool_size} has underscores inside a dotted key, {@code identity-account-mapper} has dashes in the prefix, and
- * {@code payer.identifierType} has a capital letter in the middle. Each one is pinned here so a rename cannot slip through.
+ * Moving a property from {@code @Value} to {@code @ConfigurationProperties} changes how its name resolves, and several
+ * of these names are awkward: {@code async.core_pool_size} has underscores inside a dotted key,
+ * {@code identity-account-mapper} has dashes in the prefix, and {@code payer.identifierType} has a capital letter in
+ * the middle. Each one is pinned here so a rename cannot slip through.
  * </p>
  *
  * <p>
- * This component is not deployed anywhere - there is no CR for it in mifos-gazelle and no pod - so there is no deployment environment to
- * check these against. That makes the file defaults the only contract there is, and makes this test the only thing standing between a
- * rename and a value that silently stops arriving.
+ * This component is not deployed anywhere - there is no CR for it in mifos-gazelle and no pod - so there is no
+ * deployment environment to check these against. That makes the file defaults the only contract there is, and makes
+ * this test the only thing standing between a rename and a value that silently stops arriving.
  * </p>
  */
 class ConfigurationBindingTest {

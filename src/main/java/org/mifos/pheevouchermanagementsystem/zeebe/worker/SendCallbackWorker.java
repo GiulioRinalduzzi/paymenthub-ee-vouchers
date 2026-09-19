@@ -4,7 +4,6 @@ import static org.mifos.pheevouchermanagementsystem.util.RedemptionStatusEnum.SU
 import static org.mifos.pheevouchermanagementsystem.zeebe.ZeebeVariables.PAYMENT_ADVICE;
 import static org.mifos.pheevouchermanagementsystem.zeebe.worker.Worker.VOUCHER_STATUS_SEND_CALLBACK;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.camunda.zeebe.client.ZeebeClient;
 import java.time.LocalDateTime;
 import java.time.ZoneId;

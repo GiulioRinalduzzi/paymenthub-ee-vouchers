@@ -7,5 +7,6 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 @ConfigurationProperties(prefix = "operations")
 public record OperationsApiProperties(String hostname, @DefaultValue Endpoints endpoints) {
 
-    public record Endpoints(String transfers) {}
+    public record Endpoints(String transfers) {
+    }
 }

@@ -20,7 +20,6 @@ import org.mifos.pheevouchermanagementsystem.domain.ErrorTracking;
 import org.mifos.pheevouchermanagementsystem.service.CreateVoucherService;
 import org.mifos.pheevouchermanagementsystem.service.SendCallbackService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -67,7 +67,7 @@ public class BatchAuthorizationWorker extends BaseWorker {
             String response = RestAssured.given(requestSpec).baseUri(mockSchemaHostname).body(authorizationRequest).expect()
                     .spec(new ResponseSpecBuilder().build()).when().post(batchAuthEndpoint).andReturn().asString();
 
-            client.newCompleteCommand(job.getKey()).variables(existingVariables).send();
+            client.newCompleteCommand(job.getKey()).variables(existingVariables).send().join();
         }).name(BATCH_AUTH.getValue()).maxJobsActive(zeebeProperties.client().evenlyAllocatedMaxJobs()).open();
     }
 }

@@ -106,7 +106,7 @@ public class CheckTransferStatusWorker {
 
             }
 
-            client.newCompleteCommand(job.getKey()).variables(existingVariables).send();
+            client.newCompleteCommand(job.getKey()).variables(existingVariables).send().join();
         }).name("check-transfer-status").open();
     }
 }

@@ -48,7 +48,7 @@ public class SendCallbackWorker extends BaseWorker {
                 sendCallbackService.sendCallback(body, existingVariables.get("callbackURL").toString());
             }
 
-            client.newCompleteCommand(job.getKey()).variables(existingVariables).send();
+            client.newCompleteCommand(job.getKey()).variables(existingVariables).send().join();
         }).name(VOUCHER_STATUS_SEND_CALLBACK.getValue()).open();
     }
 }

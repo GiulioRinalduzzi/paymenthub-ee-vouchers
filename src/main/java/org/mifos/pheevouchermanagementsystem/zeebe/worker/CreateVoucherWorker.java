@@ -75,7 +75,7 @@ public class CreateVoucherWorker extends BaseWorker {
                 sendCallbackService.sendCallback("Voucher Creation Failed!", callbackURL);
             }
 
-            client.newCompleteCommand(job.getKey()).variables(existingVariables).send();
+            client.newCompleteCommand(job.getKey()).variables(existingVariables).send().join();
         }).name(CREATE_VOUCHERS.getValue()).maxJobsActive(zeebeProperties.client().evenlyAllocatedMaxJobs()).open();
     }
 }

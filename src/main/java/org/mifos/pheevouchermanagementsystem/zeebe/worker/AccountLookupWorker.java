@@ -101,7 +101,7 @@ public class AccountLookupWorker extends BaseWorker {
                         accountLookupResponseDTO.getPaymentModalityList().get(0).getBankingInstitutionCode());
             }
 
-            client.newCompleteCommand(job.getKey()).variables(existingVariables).send();
+            client.newCompleteCommand(job.getKey()).variables(existingVariables).send().join();
         }).name("payee-account-Lookup-voucher").maxJobsActive(zeebeProperties.client().evenlyAllocatedMaxJobs()).open();
 
     }

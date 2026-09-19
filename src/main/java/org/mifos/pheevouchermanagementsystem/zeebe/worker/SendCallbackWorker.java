@@ -36,7 +36,6 @@ public class SendCallbackWorker extends BaseWorker {
                 RedeemVoucherResponseDTO redeemVoucherResponseDTO = new RedeemVoucherResponseDTO(SUCCESS.getValue(),
                         "Voucher redemption successful", existingVariables.get("voucherSerialNumber").toString(), null,
                         LocalDateTime.now(ZoneId.systemDefault()).toString(), existingVariables.get("transactionId").toString());
-                ObjectMapper objectMapper = new ObjectMapper();
                 String body = objectMapper.writeValueAsString(redeemVoucherResponseDTO);
                 logger.info("Sending callback on URL: {}", existingVariables.get("callbackURL"));
                 sendCallbackService.sendCallback(body, existingVariables.get("callbackURL").toString());
@@ -44,7 +43,6 @@ public class SendCallbackWorker extends BaseWorker {
                 RedeemVoucherResponseDTO redeemVoucherResponseDTO = new RedeemVoucherResponseDTO(SUCCESS.getValue(),
                         "Voucher redemption successful", existingVariables.get("voucherSerialNumber").toString(), null,
                         LocalDateTime.now(ZoneId.systemDefault()).toString(), existingVariables.get("transactionId").toString());
-                ObjectMapper objectMapper = new ObjectMapper();
                 String body = objectMapper.writeValueAsString(redeemVoucherResponseDTO);
                 logger.info("Sending callback on URL: {}", existingVariables.get("callbackURL"));
                 sendCallbackService.sendCallback(body, existingVariables.get("callbackURL").toString());

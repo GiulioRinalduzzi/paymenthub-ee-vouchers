@@ -1,16 +1,21 @@
 package org.mifos.pheevouchermanagementsystem.config;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.validation.annotation.Validated;
 
-/** Where the Zeebe broker is and how hard to poll it. */
+/**
+ * Where the Zeebe broker is and how hard to poll it. Every value is required, as it was when it was a bare
+ * {@code @Value} field.
+ */
+@Validated
 @ConfigurationProperties(prefix = "zeebe")
-public record ZeebeProperties(@DefaultValue Broker broker, @DefaultValue Client client) {
+public record ZeebeProperties(@NotNull @Valid Broker broker, @NotNull @Valid Client client) {
 
-    public record Broker(String contactpoint) {
+    public record Broker(@NotNull String contactpoint) {
     }
 
-    public record Client(@DefaultValue("50") int maxExecutionThreads, @DefaultValue("10") int pollInterval,
-            @DefaultValue("1000") int evenlyAllocatedMaxJobs) {
+    public record Client(@NotNull Integer maxExecutionThreads, @NotNull Integer pollInterval, @NotNull Integer evenlyAllocatedMaxJobs) {
     }
 }

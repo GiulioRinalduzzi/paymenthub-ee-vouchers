@@ -26,9 +26,10 @@ import org.springframework.core.env.SystemEnvironmentPropertySource;
  * </p>
  *
  * <p>
- * This component is not deployed anywhere - there is no CR for it in mifos-gazelle and no pod - so there is no
- * deployment environment to check these against. That makes the file defaults the only contract there is, and makes
- * this test the only thing standing between a rename and a value that silently stops arriving.
+ * There is no running pod to check these against: the CR for this component is disabled on gazelle3. The CR in
+ * mifos-gazelle sets only a few of these keys (the three hostnames and the Zeebe contact point), so for everything else
+ * the file values are the contract, and this test is what stands between a rename and a value that silently stops
+ * arriving.
  * </p>
  */
 class ConfigurationBindingTest {
